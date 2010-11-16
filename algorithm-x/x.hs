@@ -9,6 +9,8 @@ import Data.Map ((!))
 import qualified Data.Map as M
 import qualified Data.Set as S
 
+import System.Random
+
 -- FIXME:
 -- data Matrix a b
 --   = Matrix {rows :: Set a, Cols :: Set b, dat :: Set (a,b) }
@@ -43,8 +45,10 @@ cover m
 		crossRows = minimumBy (comparing length) $ M.elems cols
 
 
-testMat = M.fromList
-	$ zip [ (i,j) | i <- ['A'..'F'], j <- [1..7]]
+prod xs ys = [ (i,j) | i <- xs, j <- ys]
+mkTest xs ys = M.fromList	. zip (prod xs ys)
+
+testMat = mkTest ['A'..'F'] [1..7]
 	$ map (=='1')
 			$  "1001001"
 			++ "1001000"
@@ -53,4 +57,10 @@ testMat = M.fromList
 			++ "0110011"
 			++ "0100001"
 
+-- (29.93 secs, 4727031224 bytes)
+bigTest
+	= mkTest [1..1200] [1..100]
+	$ map (<(0.2::Double))
+	$ randoms
+	$ mkStdGen 12345
 

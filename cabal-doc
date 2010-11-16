@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+
+# http://hackage.haskell.org/trac/hackage/ticket/534
+# http://hackage.haskell.org/trac/hackage/ticket/517
+
+
+PKG=$1
+PKG_DIR=~/.cabal/packages/hackage.haskell.org
+LAST_VER=`ls $PKG_DIR/$PKG/ | sort -r | head -n 1`
+PKG_TAR=`ls $PKG_DIR/$PKG/$LAST_VER/*.tar.gz | head -n 1`
+TMP_DIR=/tmp/$PKG.$( date +"%s" )
+
+mkdir $TMP_DIR
+tar xzf $PKG_TAR -C $TMP_DIR
+
+cd $TMP_DIR/$PKG-$LAST_VER
+cabal configure
+cabal haddock --hyperlink-source
+cp -r dist/doc/html/$PKG/* ~/.cabal/share/doc/$PKG-$LAST_VER/html/
+
+cd $OLDPWD
+rm -rf $TMP_DIR
+

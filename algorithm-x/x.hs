@@ -1,52 +1,65 @@
 
 {-# LANGUAGE NoMonomorphismRestriction #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- http://en.wikipedia.org/wiki/Algorithm_X
 
 import Data.Ord
-import Data.List
+import Data.List hiding ((\\))
 import Data.Map ((!))
 import qualified Data.Map as M
+import Data.Set (Set, (\\))
 import qualified Data.Set as S
 
 import System.Random
 
--- FIXME:
--- data Matrix a b
---   = Matrix {rows :: Set a, Cols :: Set b, dat :: Set (a,b) }
 
+data Matrix a b
+	= Matrix
+		{ rows :: Set a -- множество индексов строчек в матрице
+		, cols :: Set b -- множество индексов колонок в матрице
+		, ones :: Set (a,b) -- индексы ненулевых элементов
+		}
 
-groupCells = M.foldWithKey select (M.empty, M.empty)
+isEmpty (Matrix{..}) = S.size rows == 0 || S.size cols == 0
+
+groupCells (Matrix{..})
+	= S.fold select (emptyMap rows, emptyMap cols) ones
 	where
-		add val = M.alter $ Just . maybe [val] (val:)
-		init = M.alter $ Just . maybe [] id
-
-		select (i,j) k (rows,cols)
-			| k     = (add j i rows, add i j cols)
-			| not k = (init i rows, init j cols)
+		emptyMap s = M.fromAscList $ zip (S.toAscList s) $ repeat S.empty
+		add val = M.alter $ fmap (S.insert val)
+		select (i,j) (rows,cols) = (add j i rows, add i j cols)
 
 
-reduce rows cols
-	= M.filterWithKey $ \(i,j) _ -> not (S.member i rs || S.member j cs)
-	where
-		(rs,cs) = (S.fromList rows, S.fromList cols)
+reduce rs cs (Matrix{..})
+	= Matrix
+		{ rows = rows \\ rs
+		, cols = cols \\ cs
+		, ones = flip S.filter ones
+				$ \(i,j) -> not $ S.member i rs || S.member j cs
+		}
 
 
 cover m
-	| M.size m == 0  = [[]]
-	| otherwise      = concat
+	| isEmpty m = [[]]
+	| otherwise = concat
 		[ map (row:) $ cover $ reduce is js m
-		| row <- crossRows
+		| row <- S.toList crossRows
 		, let js = rows ! row
-		, let is = concatMap (cols!) js
+		, let is = S.unions $ map (cols!) $ S.toList js
 		]
 	where
 		(rows, cols) = groupCells m
-		crossRows = minimumBy (comparing length) $ M.elems cols
+		crossRows = minimumBy (comparing S.size) $ M.elems cols
 
 
 prod xs ys = [ (i,j) | i <- xs, j <- ys]
-mkTest xs ys = M.fromList	. zip (prod xs ys)
+mkTest xs ys dat
+	= Matrix
+		{ rows = S.fromAscList xs
+		, cols = S.fromAscList ys
+		, ones = S.fromList [k | (k, True) <- zip (prod xs ys) dat]
+		}
 
 testMat = mkTest ['A'..'F'] [1..7]
 	$ map (=='1')
@@ -57,7 +70,7 @@ testMat = mkTest ['A'..'F'] [1..7]
 			++ "0110011"
 			++ "0100001"
 
--- (29.93 secs, 4727031224 bytes)
+-- (6.07 secs, 1076182552 bytes)
 bigTest
 	= mkTest [1..1200] [1..100]
 	$ map (<(0.2::Double))

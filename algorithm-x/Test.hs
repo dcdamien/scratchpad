@@ -20,10 +20,12 @@ data TestParams = TestParams
 
 -- TODO: instance Arbitrary TestParams
 
-testCover m c = allColumns == sort crossColumns
+testCover m = map (testSolution m) $ cover m
+
+testSolution m sol = allColumns == sort crossColumns
 	where
 		(rows, _) = groupCells m
-		crossColumns = concatMap (S.toList . (rows!)) c
+		crossColumns = concatMap (S.toList . (rows!)) sol
 		allColumns = S.toAscList $ cols m
 
 
@@ -45,8 +47,8 @@ testMat = mkTest ['A'..'F'] [1..7]
 			++ "0100001"
 
 smallTest
-	= mkTest [1..12] [1..10]
-	$ map (<(0.6::Double))
+	= mkTest [1..19] [1..19]
+	$ map (<(0.4::Double))
 	$ randoms
 	$ mkStdGen 12345
 

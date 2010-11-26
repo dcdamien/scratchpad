@@ -29,7 +29,7 @@ groupCells (Matrix{..})
 
 
 -- | удаляет из матицы строки 'rs' и столбцы 'cs'
-reduce rs cs (Matrix{..})
+remove rs cs (Matrix{..})
 	= Matrix
 		{ rows = rows \\ rs
 		, cols = cols \\ cs
@@ -40,13 +40,19 @@ reduce rs cs (Matrix{..})
 
 cover m
 	| isEmpty m = [[]]
-	| otherwise = concat
-		[ map (row:) $ cover $ reduce is js m
-		| row <- S.toList crossRows
-		, let js = rows ! row
-		, let is = S.unions $ map (cols!) $ S.toList js
-		]
+	| otherwise = concatMap step $ S.toList crossRows
 	where
 		(rows, cols) = groupCells m
+		-- | строки, пересекающие столбец с минимальным числом единиц
 		crossRows = minimumBy (comparing S.size) $ M.elems cols
+
+		step row = map (row:) $ cover $ reduce row
+
+		reduce row = remove is js m
+			where
+				-- столбцы, которые пересекают 'row'
+				js = rows ! row
+				-- строки, которые пересекают столбцы из js
+				is = S.unions $ map (cols!) $ S.toList js
+
 

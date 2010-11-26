@@ -43,8 +43,7 @@ instance
 				maxWidth = maximum . map (length . show) $ map show rs ++ map show cs
 				align s = take maxWidth $ s ++ repeat ' '
 
-				showElem i j = align
-					$ if S.member (i,j) ones then "X" else " "
+				showElem i j = align $ if S.member (i,j) ones then "X" else " "
 
 				showRow i = align (show i) : [showElem i j | j <- cs]
 				header = align "" : map (align . show) cs

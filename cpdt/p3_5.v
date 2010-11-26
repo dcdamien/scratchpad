@@ -15,6 +15,30 @@ Implicit Arguments TLeaf [A].
 Implicit Arguments TNode [A].
 
 
+Section forall_bt.
+  Variable A: Set.
+
+  Fixpoint forall_bt (P: A -> Prop) (bt: btree A): Prop :=
+    match bt with
+      | BLeaf a => P a
+      | BNode l a r => forall_bt P l /\ P a /\ forall_bt P r
+    end.
+End forall_bt.
+
+
+Section trexp_ind'.
+  Variable A: Set.
+  Variable P: trexp A -> Prop.
+  Hypothesis Leaf_case: forall a: A, P (TLeaf a).
+  Hypothesis Node_case: forall bt: btree (trexp A), forall_bt _ P bt -> P (TNode bt).
+
+  Fixpoint trexp_ind' (tr: trexp A): P tr :=
+    match tr with
+      | TLeaf a => Leaf_case a
+      | TNode bt => Node_case bt (forall_bt _ P bt)
+    end.
+End trexp_ind'.
+
 (*
 ?? Почему нужно определять foldB внутри total?
 
@@ -76,7 +100,7 @@ Theorem total_increment: forall (tr: trexp nat), total tr <= total (increment tr
 Proof.
   intros.
   induction tr.
-    simpl. apply le_n_Sn.
+    simpl; apply le_n_Sn.
     unfold total, increment. simpl. fold increment. fold total.
 
 

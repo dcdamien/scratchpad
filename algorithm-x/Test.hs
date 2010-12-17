@@ -20,6 +20,11 @@ data TestParams = TestParams
 
 -- TODO: instance Arbitrary TestParams
 
+main = print
+	$ all (==True)
+	$  concatMap (testCover . smallTest) [1..1000]
+	++ concatMap (testCover . bigTest) [1..100]
+
 testCover m = map (testSolution m) $ cover m
 
 testSolution m sol = allColumns == sort crossColumns
@@ -47,16 +52,16 @@ testMat = mkTest ['A'..'F'] [1..7]
 			++ "0100001"
 
 smallTest
-	= mkTest [1..19] [1..19]
-	$ map (<(0.4::Double))
-	$ randoms
-	$ mkStdGen 12345
+	= mkTest [1..25] [1..25]
+	. map (<(0.8::Double))
+	. randoms
+	. mkStdGen
 
 
 -- (6.07 secs, 1076182552 bytes)
 bigTest
 	= mkTest [1..1200] [1..100]
-	$ map (<(0.2::Double))
-	$ randoms
-	$ mkStdGen 12345
+	. map (<(0.8::Double))
+	. randoms
+	. mkStdGen
 

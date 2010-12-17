@@ -19,7 +19,7 @@ data Matrix a b
 
 emptyMatrix = Matrix S.empty S.empty S.empty
 
-isEmpty (Matrix{..}) = S.size rows == 0 || S.size cols == 0
+isEmpty (Matrix{..}) =  S.size cols == 0
 
 
 mkMatrix = foldl' process emptyMatrix

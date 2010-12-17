@@ -40,19 +40,18 @@ remove rs cs (Matrix{..})
 
 cover m
 	| isEmpty m = [[]]
-	| otherwise = concatMap step $ S.toList crossRows
+	| otherwise = concatMap step crossRows
 	where
 		(rows, cols) = groupCells m
-		-- | строки, пересекающие столбец с минимальным числом единиц
-		crossRows = minimumBy (comparing S.size) $ M.elems cols
+		-- строки, пересекающие столбец с минимальным числом единиц
+		crossRows = S.toList $ minimumBy (comparing S.size) $ M.elems cols
 
-		step row = map (row:) $ cover $ reduce row
-
-		reduce row = remove is js m
+		step row = map (row:) $ cover $ remove is js m
 			where
 				-- столбцы, которые пересекают 'row'
 				js = rows ! row
-				-- строки, которые пересекают столбцы из js
+				-- строки, которые пересекают столбцы из 'js'
 				is = S.unions $ map (cols!) $ S.toList js
+
 
 

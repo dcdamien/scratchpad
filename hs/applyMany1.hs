@@ -1,27 +1,34 @@
-{-# LANGUAGE MultiParamTypeClasses, FlexibleInstances, TypeFamilies #-}
+{-# LANGUAGE TypeFamilies, MultiParamTypeClasses, FlexibleInstances #-}
+{-# LANGUAGE FlexibleContexts #-}
 
 import Control.Applicative
 import TypeLevel.NaturalNumber
 import Test.QuickCheck
 
+class GetVal a where
+  getVal :: a
 
-class ApplyArbitrary n g where
+class Applicative f => ApplyMany n f g where
   type Res n g
-  app :: n -> Gen g -> Gen (Res n g)
+  app :: n -> f g -> f (Res n g)
 
-instance ApplyArbitrary Zero g where
+instance Applicative f => ApplyMany Zero f g where
   type Res Zero g = g
-  app _ g = g
+  app _ fg = fg
 
 instance
-  (Arbitrary a, ApplyArbitrary n g)
-  => ApplyArbitrary (SuccessorTo n) (a -> g)
+  (Applicative f, GetVal (f a), ApplyMany n f g)
+  => ApplyMany (SuccessorTo n) f (a -> g)
   where
     type Res (SuccessorTo n) (a -> g) = Res n g
-    app n f = app (predecessorOf n) (f<*>arbitrary)
+    app n fg = app (predecessorOf n) (fg<*>getVal)
 
 
 data MyType = MyType Char Int Bool deriving Show
+
+instance Arbitrary a => GetVal (Gen a) where
+  getVal = arbitrary
+
 
 test3 = app n3 (pure MyType) :: Gen MyType
 test2 = app n2 (pure MyType) :: Gen (Bool -> MyType)

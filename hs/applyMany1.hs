@@ -1,46 +1,31 @@
 {-# LANGUAGE MultiParamTypeClasses, FlexibleInstances, TypeFamilies #-}
-{-# LANGUAGE FlexibleContexts #-}
-
 
 import Control.Applicative
 import TypeLevel.NaturalNumber
+import Test.QuickCheck
 
 
-class GetVal v where
-  getVal :: v
+class ApplyArbitrary n g where
+  type Res n g
+  app :: n -> Gen g -> Gen (Res n g)
 
-class Telescope n f where
-  type Arg n f
-  type Res n f
-  app :: GetVal (Arg n f) => n -> f -> Arg n f -> Res n f
-
-instance Telescope Zero f where
-  type Arg Zero f = ()
-  type Res Zero f = f
-  app _ f _ = f
+instance ApplyArbitrary Zero g where
+  type Res Zero g = g
+  app _ g = g
 
 instance
-  (GetVal a, GetVal (Arg n f), Telescope n f)
-  => Telescope (SuccessorTo n) (a -> f)
+  (Arbitrary a, ApplyArbitrary n g)
+  => ApplyArbitrary (SuccessorTo n) (a -> g)
   where
-    type Arg (SuccessorTo n) (a -> f) = a
-    type Res (SuccessorTo n) (a -> f) = Res n f
-    app n f a = app (predecessorOf n) (f a) getVal
+    type Res (SuccessorTo n) (a -> g) = Res n g
+    app n f = app (predecessorOf n) (f<*>arbitrary)
 
 
 data MyType = MyType Char Int Bool deriving Show
 
-instance GetVal ()   where getVal = undefined
-instance GetVal Char where getVal = 'd'
-instance GetVal Int  where getVal = 185
-instance GetVal Bool where getVal = False
-
-test3 = app n3 MyType getVal :: MyType
-test2 = app n2 MyType getVal :: Bool -> MyType
-test1 = app n1 MyType getVal :: Int -> Bool -> MyType
-
-
-
-
+test3 = app n3 (pure MyType) :: Gen MyType
+test2 = app n2 (pure MyType) :: Gen (Bool -> MyType)
+test1 = app n1 (pure MyType) :: Gen (Int -> Bool -> MyType)
+test0 = app n0 (pure MyType) :: Gen (Char -> Int -> Bool -> MyType)
 
 

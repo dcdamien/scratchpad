@@ -1,3 +1,7 @@
+{-
+http://stackoverflow.com/questions/4755557
+-}
+
 {-# LANGUAGE TypeFamilies, MultiParamTypeClasses, FlexibleInstances #-}
 {-# LANGUAGE FlexibleContexts #-}
 

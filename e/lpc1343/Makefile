@@ -2,7 +2,6 @@
 # This Makefile is based on the one from lpc1343-codebase
 # http://www.microbuilder.eu/Projects/LPC1343ReferenceDesign/LPC1343CodeBase.aspx
 
-LPC1343CODEBASE = ~/e/lpc1343/lpc1343codebase
 
 CPU_TYPE = cortex-m3
 FLASH = 32K
@@ -12,35 +11,27 @@ SRAM = 8K
 # if you don't want to use the USB features, just use 0 here.
 SRAM_USB = 384
 
-
-VPATH   =
-OBJS    = main.o
+VPATH    = $(LPC_CODEBASE)/core/timer32 $(LPC_CODEBASE)/core/usbcdc
+VPATH   += $(LPC_CODEBASE)/core/cpu $(LPC_CODEBASE)/core/systick
+VPATH   += $(LPC_CODEBASE)/core/gpio $(LPC_CODEBASE)/core/pmu
+OBJS    = main.o timer32.o usbcore.o usbdesc.o usbuser.o usbhw.o cdcuser.o cdc_buf.o cpu.o systick.o gpio.o pmu.o 
 OUTFILE = firmware
 
 
 ##########################################################################
 # GNU GCC compiler prefix and location
 ##########################################################################
-
 AS      = arm-none-eabi-gcc
 CC      = arm-none-eabi-gcc
 LD      = arm-none-eabi-gcc
 OBJCOPY = arm-none-eabi-objcopy
-LPCRC   = ${LPC1343CODEBASE}/lpcrc
-
-
-##########################################################################
-# GNU GCC compiler flags
-##########################################################################
-ROOT_PATH = .
-INCLUDE_PATHS = -I$(ROOT_PATH) -I$(ROOT_PATH)/project
+LPCRC   = $(LPC_CODEBASE)/lpcrc
 
 
 ##########################################################################
 # Startup files
 ##########################################################################
-
-LD_PATH   = ${LPC1343CODEBASE}/lpc1xxx
+LD_PATH   = $(LPC_CODEBASE)/lpc1xxx
 LD_SCRIPT = $(LD_PATH)/linkscript.ld
 LD_TEMP   = memory.ld
 
@@ -51,8 +42,8 @@ OBJS  += LPC13xx_handlers.o LPC1xxx_startup.o
 ##########################################################################
 # Compiler settings, parameters and flags
 ##########################################################################
-
-CFLAGS  = -c -g -Os $(INCLUDE_PATHS) -Wall -mthumb -ffunction-sections -fdata-sections -fmessage-length=0 -mcpu=$(CPU_TYPE) -DTARGET=LPC13xx -fno-builtin
+INCLUDE_PATHS = -I. -I$(LPC_CODEBASE)
+CFLAGS  = -std=c99 -c -g -Os $(INCLUDE_PATHS) -Wall -mthumb -ffunction-sections -fdata-sections -fmessage-length=0 -mcpu=$(CPU_TYPE) -DTARGET=LPC13xx -fno-builtin
 ASFLAGS = -c -g -Os $(INCLUDE_PATHS) -Wall -mthumb -ffunction-sections -fdata-sections -fmessage-length=0 -mcpu=$(CPU_TYPE) -D__ASSEMBLY__ -x assembler-with-cpp
 LDFLAGS = -nostartfiles -mthumb -Wl,--gc-sections
 OCFLAGS = --strip-unneeded
@@ -61,7 +52,6 @@ OCFLAGS = --strip-unneeded
 ##########################################################################
 # Make targets
 ##########################################################################
-
 all: firmware
 
 %.o : %.c
@@ -81,6 +71,11 @@ firmware: $(OBJS) $(SYS_OBJS)
 	$(LD) $(LDFLAGS) -T $(LD_TEMP) -o $(OUTFILE).elf $(OBJS)
 	$(OBJCOPY) $(OCFLAGS) -O binary $(OUTFILE).elf $(OUTFILE).bin
 	$(LPCRC) firmware.bin
+
+program:
+	-@umount $(DEV) || echo "Nothing to umount"
+	mdel -i $(DEV) ::/firmware.bin
+	mcopy -i $(DEV) $(OUTFILE).bin ::/
 
 clean:
 	rm -f $(OBJS) $(LD_TEMP) $(OUTFILE).elf $(OUTFILE).bin $(OUTFILE).hex

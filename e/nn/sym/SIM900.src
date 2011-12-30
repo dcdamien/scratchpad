@@ -1,0 +1,127 @@
+# This is the template file for creating symbols with tragesym
+# every line starting with '#' is a comment line.
+
+[options]
+# wordswap swaps labels if the pin is on the right side an looks like this:
+#   "PB1 (CLK)". That's useful for micro controller port labels
+# rotate_labels rotates the pintext of top and bottom pins
+#   this is useful for large symbols like FPGAs with more than 100 pins
+# sort_labels will sort the pins by it's labels
+#   useful for address ports, busses, ...
+wordswap=yes
+rotate_labels=yes
+sort_labels=no
+generate_pinseq=yes
+sym_width=8500
+pinwidthvertical=400
+pinwidthhorizontal=400
+
+[geda_attr]
+# name will be printed in the top of the symbol
+# name is only some graphical text, not an attribute
+# version specifies a gschem version.
+# if you have a device with slots, you'll have to use slot= and slotdef=
+# use comment= if there are special information you want to add
+version=20111111 1
+name=SIM900
+device=SIM900
+refdes=U?
+footprint=SIM900.fp
+description=GSM modem
+documentation=http://gsm-gate.ru/product/gsm-modul-simcom-sim900/
+author=max taldykin
+dist-license=PublicDomain
+use-license=PublicDomain
+numslots=0
+#slot=1
+#slotdef=1:
+#slotdef=2:
+#slotdef=3:
+#slotdef=4:
+#comment=
+#comment=
+#comment=
+
+[pins]
+# tabseparated list of pin descriptions
+# ----------------------------------------
+# pinnr is the physical number of the pin
+# seq is the pinseq= attribute, leave it blank if it doesn't matter
+# type can be (in, out, io, oc, oe, pas, tp, tri, clk, pwr)
+# style can be (line,dot,clk,dotclk,none). none if only want to add a net
+# posit. can be (l,r,t,b) or empty for nets
+# net specifies the name of the net. Vcc or GND for example.
+# label represents the pinlabel.
+#	negation lines can be added with "\_" example: \_enable\_ 
+#	if you want to write a "\" use "\\" as escape sequence
+#-----------------------------------------------------
+#pinnr	seq	type	style	posit.	net	label	
+#-----------------------------------------------------
+1		pwr	line	l		PWRKEY
+2		pwr	line	l		PWRKEY_OUT
+3		io	line	l		DTR
+4		io	line	l		RI
+5		io	line	l		DCD
+6		io	line	l		DSR
+7		io	line	l		CTS
+8		io	line	l		RTS
+9		io	line	l		TXD
+10		io	line	l		RXD
+11		clk	line	l		DISP_CLK
+12		io	line	l		DISP_DATA
+13		io	line	l		DISP_D/C
+14		io	line	l		DISP_CS
+15		pwr	line	l		VDD_EXT
+16		in	line	l		NRESET
+17		pwr	line	l		GND
+18		pwr	line	b		GND
+19		in	line	b		MIC_P
+20		in	line	b		MIC_N
+21		out	line	b		SPK_P
+22		out	line	b		SPK_N
+23		in	line	b		LINEIN_R
+24		in	line	b		LINEIN_L
+25		io	line	b		ADC
+26		io	line	b		VRTC
+27		io	line	b		DBG_TXD
+28		io	line	b		DBG_RXD
+29		pwr	line	b		GND
+30		pwr	line	b		SIM_VDD
+31		io	line	b		SIM_DATA
+32		clk	line	b		SIM_CLK
+33		out	line	b		SIM_RST
+34		in	line	b		SIM_PRESENCE
+51		io	line	r		GPIO10
+50		io	line	r		GPIO9/KBC1
+49		io	line	r		GPIO8/KBC2
+48		io	line	r		GPIO7/KBC3
+47		io	line	r		GPIO6/KBC4
+46		pwr	line	r		GND
+45		pwr	line	r		GND
+44		io	line	r		GPIO5/KBR0
+43		io	line	r		GPIO4/KBR1
+42		io	line	r		GPIO3/KBR2
+41		io	line	r		GPIO2/KBR3
+40		io	line	r		GPIO1/KBR4
+39		pwr	line	r		GND
+38		io	line	r		SCL
+37		io	line	r		SDA
+36		out	line	r		PWM2
+35		out	line	r		PWM1
+68		io	line	t		GPIO12
+67		io	line	t		GPIO11
+66		out	line	t		STATUS
+65		pwr	line	t		GND
+64		pwr	line	t		GND
+63		pwr	line	t		GND
+62		pwr	line	t		GND
+61		pwr	line	t		GND
+60		io	line	t		RF_ANT
+59		pwr	line	t		GND
+58		pwr	line	t		GND
+57		pwr	line	t		VBAT
+56		pwr	line	t		VBAT
+55		pwr	line	t		VBAT
+54		pwr	line	t		GND
+53		pwr	line	t		GND
+52		out	line	t		NETLIGHT

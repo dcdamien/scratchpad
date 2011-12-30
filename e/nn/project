@@ -1,0 +1,3 @@
+schematics 1-power.sch 2-uC.sch 3-flash.sch 4-can.sch
+elements-dir footprints
+output-name board

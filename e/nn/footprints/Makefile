@@ -1,5 +1,5 @@
 
-TARGETS = SIM900.fp
+TARGETS = SIM900.fp GLONASHA.fp
 all: $(TARGETS)
 
 clean:

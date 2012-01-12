@@ -1,25 +1,29 @@
 
-Ограничение входного напряжения LM1117-3.3v
-http://kazus.ru/forums/showthread.php?t=32128
 
-ld1117s33
-http://www.sparkfun.com/datasheets/Components/LD1117V33.pdf
 
-LP3965
-
-- ноги на STM32 в другом порядке
+- резистор для кварца?
 
 - разъём UX60-MB-5ST
 - footprint для usb mini-b
-- тантал на входе LM
-
-- nreset к плюсу через 10к и кнопку (на землю) к нему
-
-- сэкономить на конденсаторах для аналогового питания?
-
-- привязать всё неиспользуемое к земле
+- тантал на входе LM?
 
 - CAN = MAX3051
 - диодная сборка SMF05C
-- mic29302 (корпус 5-pin TO-263) 
 
+
+LM1117MPX-ADJ/NOPB		65.43
+
+регуляторы на 4В (ADJ):	
+20 x LD1117STR   4.11	http://www.terraelectronica.ru/pdf/ST/LD1117S33.pdf (p.17-18)	
+LD1117ASTR  33.36 (то же самое, только на 1А)
+
+20 x LD1117STR                4.11
+5  x STM32F102R8T6						76.19
+5  x STM32F105RBT6   					131.67
+5  x MAX3051ESA+     					70.74
+5  x AT25DF321A-SH-T					62.42
+10 x KX-12B 12.0 MHz					30.88
+10 x KX-38 32.768 kHz 12.5pF	18.29
+3  x SIM900 [B07]    					771.15
+10 x UX60-MB-5ST     					13.10
+10 x SMF05CT1G       					14.15

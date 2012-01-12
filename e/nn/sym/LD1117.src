@@ -9,10 +9,10 @@
 # sort_labels will sort the pins by it's labels
 #   useful for address ports, busses, ...
 wordswap=yes
-rotate_labels=yes
+rotate_labels=no
 sort_labels=no
 generate_pinseq=yes
-sym_width=6600
+sym_width=1000
 pinwidthvertical=400
 pinwidthhorizontal=400
 
@@ -23,12 +23,12 @@ pinwidthhorizontal=400
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20111111 1
-name=STM32F10xRx
-device=STM32F10xRx
+name=LD1117
+device=LD1117
 refdes=U?
-footprint=LQFP64_10
-description=
-documentation=http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/DATASHEET/CD00210831.pdf
+footprint=SOT223
+description=Low-Dropout Linear Regulator
+documentation=http://www.terraelectronica.ru/pdf/ST/LD1117S33.pdf
 author=max taldykin
 dist-license=PublicDomain
 use-license=PublicDomain
@@ -57,69 +57,6 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		pwr	line	l		V_BAT
-2		io	line	l		PC13/TAMPER/RTC
-3		io	line	l		PC14/OSC32_IN
-4		io	line	l		PC15/OSC32_OUT
-5		io	line	l		PD0
-6		io	line	l		PD1
-7		io	line	l		NRST
-8		io	line	l		PC0
-9		io	line	l		PC1
-10		io	line	l		PC2
-11		io	line	l		PC3
-12		pwr	line	l		V_SSA
-13		pwr	line	l		V_DDA
-14		io	line	l		PA0/WKUP
-15		io	line	l		PA1
-16		io	line	l		PA2
-17		io	line	b		PA3
-18		pwr	line	b		V_SS4
-19		pwr	line	b		V_DD4
-20		io	line	b		PA4
-21		io	line	b		PA5
-22		io	line	b		PA6
-23		io	line	b		PA7
-24		io	line	b		PC4
-25		io	line	b		PC5
-26		io	line	b		PB0
-27		io	line	b		PB1
-28		io	line	b		PB2/BOOT1
-29		io	line	b		PB10
-30		io	line	b		PB11
-31		pwr	line	b		V_SS1
-32		pwr	line	b		V_DD1
-48		pwr	line	r		V_DD2
-47		pwr	line	r		V_SS2
-46		io	line	r		PA13
-45		io	line	r		PA12
-44		io	line	r		PA11
-43		io	line	r		PA10
-42		io	line	r		PA9
-41		io	line	r		PA8
-40		io	line	r		PC9
-39		io	line	r		PC8
-38		io	line	r		PC7
-37		io	line	r		PC6
-36		io	line	r		PB15
-35		io	line	r		PB14
-34		io	line	r		PB13
-33		io	line	r		PB12
-64		pwr	line	t		V_DD3
-63		pwr	line	t		V_SS3
-62		io	line	t		PB9
-61		io	line	t		PB8
-60		io	line	t		BOOT0
-59		io	line	t		PB7
-58		io	line	t		PB6
-57		io	line	t		PB5
-56		io	line	t		PB4
-55		io	line	t		PB3
-54		io	line	t		PD2
-53		io	line	t		PC12
-52		io	line	t		PC11
-51		io	line	t		PC10
-50		io	line	t		PA15
-49		io	line	t		PA14
-
-
+3		pwr	line	l		IN
+2		pwr	line	r		OUT
+1		pwr	line	b		ADJ

@@ -9,14 +9,14 @@ define(`t', `Pad[i($1) mm(-995) i($1) mm(-865) mm(50) 1500 3100 "$3" "$2" 0x0000
 
 Element(0x00000 "SIM900 GSM modem" "U0" "" 10 10 -50 -50 0 100 0x00000)
 (
-	ElementLine[mm(-1295) mm(-995) mm(-1115) mm(-995) 5]
-	ElementLine[mm(-1295) mm(-995) mm(-1295) mm(-815) 5]
-	ElementLine[mm(-1295) mm(995)  mm(-1115) mm(995) 5]
-	ElementLine[mm(-1295) mm(995)  mm(-1295) mm(815) 5]
-	ElementLine[mm(1295)  mm(-995) mm(1115)  mm(-995) 5]
-	ElementLine[mm(1295)  mm(-995) mm(1295)  mm(-815) 5]
-	ElementLine[mm(1295)  mm(995)  mm(1115)  mm(995) 5]
-	ElementLine[mm(1295)  mm(995)  mm(1295)  mm(815) 5]
+	ElementLine[mm(-1295) mm(-995) mm(-1150) mm(-995) 500]
+	ElementLine[mm(-1295) mm(-995) mm(-1295) mm(-850) 500]
+	ElementLine[mm(-1295) mm(995)  mm(-1150) mm(995)  500]
+	ElementLine[mm(-1295) mm(995)  mm(-1295) mm(850)  500]
+	ElementLine[mm(1295)  mm(-995) mm(1200)  mm(-995) 500]
+	ElementLine[mm(1295)  mm(-995) mm(1295)  mm(-850) 500]
+	ElementLine[mm(1295)  mm(995)  mm(1200)  mm(995)  500]
+	ElementLine[mm(1295)  mm(995)  mm(1295)  mm(850)  500]
   
   b(220,1,GND)
   b(370,2,GND)

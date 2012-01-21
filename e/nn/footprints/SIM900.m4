@@ -8,14 +8,14 @@ define(`t', `Pad[i($1) mm(-125) i($1) mm(-115) mm(6) 1500 3100 "$3" "$2" 0x00000
 
 Element(0x00000 "SIM900 GSM modem" "U0" "" 10 10 -50 -50 0 100 0x00000)
 (
-	ElementLine[m(-12) m(-12) m(-9)  m(-12) 5]
-	ElementLine[m(-12) m(-12) m(-12) m(-9) 5]
-	ElementLine[m(-12) m(12) m(-9)  m(12) 5]
-	ElementLine[m(-12) m(12) m(-12) m(9) 5]
-	ElementLine[m(12) m(-12) m(9)  m(-12) 5]
-	ElementLine[m(12) m(-12) m(12) m(-9) 5]
-	ElementLine[m(12) m(12) m(9)  m(12) 5]
-	ElementLine[m(12) m(12) m(12) m(9) 5]
+	ElementLine[m(-12) m(-12) m(-9)  m(-12) 500]
+	ElementLine[m(-12) m(-12) m(-12) m(-9)  500]
+	ElementLine[m(-12) m(12)  m(-9)  m(12)  500]
+	ElementLine[m(-12) m(12)  m(-12) m(9)   500]
+	ElementLine[m(12)  m(-12) m(9)   m(-12) 500]
+	ElementLine[m(12)  m(-12) m(12)  m(-9)  500]
+	ElementLine[m(12)  m(12)  m(9)   m(12)  500]
+	ElementLine[m(12)  m(12)  m(12)  m(9)   500]
 	l(1,1,PWRKEY)
 	l(2,2,PWRKEY_OUT)
 	l(3,3,DTR)

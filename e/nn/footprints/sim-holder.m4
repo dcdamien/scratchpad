@@ -8,11 +8,11 @@ Element[0x00 "sim-holder" "CONN1" "" 0 0 50 50 0x00 100 0x000]
   ElementLine[mm(-510) mm(-690) mm(-510) mm(950)  500]
   ElementLine[mm(-510) mm(950)  mm(1020) mm(950)  500]
 
-  Pad[mm(350)  mm(-160) mm(460)  mm(-160) mm(50)  mm(50) mm(50) "Vcc" "1" 0x0100]
-  Pad[mm(350)  mm(0)    mm(460)  mm(0)    mm(50)  mm(50) mm(50) "RST" "2" 0x0100]
-  Pad[mm(350)  mm(160)  mm(460)  mm(160)  mm(50)  mm(50) mm(50) "CLK" "3" 0x0100]
+  Pad[mm(350)  mm(-160) mm(460)  mm(-160) mm(50)  mm(50) mm(70) "Vcc" "1" 0x0100]
+  Pad[mm(350)  mm(0)    mm(460)  mm(0)    mm(50)  mm(50) mm(70) "RST" "2" 0x0100]
+  Pad[mm(350)  mm(160)  mm(460)  mm(160)  mm(50)  mm(50) mm(70) "CLK" "3" 0x0100]
   
-  Pad[mm(-350) mm(-160) mm(-460) mm(-160) mm(50)  mm(50) mm(50) "GND" "4" 0x0100]
-  Pad[mm(-350) mm(0)    mm(-460) mm(0)    mm(50)  mm(50) mm(50) "Vpp" "5" 0x0100]
-  Pad[mm(-350) mm(160)  mm(-460) mm(160)  mm(50)  mm(50) mm(50) "IO"  "6" 0x0100]
+  Pad[mm(-350) mm(-160) mm(-460) mm(-160) mm(50)  mm(50) mm(70) "GND" "4" 0x0100]
+  Pad[mm(-350) mm(0)    mm(-460) mm(0)    mm(50)  mm(50) mm(70) "Vpp" "5" 0x0100]
+  Pad[mm(-350) mm(160)  mm(-460) mm(160)  mm(50)  mm(50) mm(70) "IO"  "6" 0x0100]
 )

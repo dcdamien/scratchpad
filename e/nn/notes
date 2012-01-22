@@ -2,14 +2,26 @@
 
 
 - резистор для кварца?
+- перейти на дешёвые кварцы
 
-- разъём UX60-MB-5ST
-- footprint для usb mini-b
-- тантал на входе LM?
+- посмотреть как здесь usb mini-b приделан
+  - http://www.olimex.com/dev/pdf/ARM/LPC/LPC-P1343-schematic.pdf
+
+держатели карт
+- в терре SIM 91228-3001 за 72р
+- по 30р http://shop.digitalangel.ru/catalog/1442/
+ 
+
+- использовать резисторную сборку для JTAG 
+ - и для sim
 
 - CAN = MAX3051
 - диодная сборка SMF05C
+  - footprint
+  - добавить в схему 
 
+- sim900
+ - на VRTC нужно подать 3.15?
 
 LM1117MPX-ADJ/NOPB		65.43
 

@@ -9,10 +9,10 @@
 # sort_labels will sort the pins by it's labels
 #   useful for address ports, busses, ...
 wordswap=yes
-rotate_labels=no
+rotate_labels=yes
 sort_labels=no
 generate_pinseq=yes
-sym_width=1000
+sym_width=7000
 pinwidthvertical=400
 pinwidthhorizontal=400
 
@@ -23,12 +23,12 @@ pinwidthhorizontal=400
 # if you have a device with slots, you'll have to use slot= and slotdef=
 # use comment= if there are special information you want to add
 version=20111111 1
-name=LM1117
-device=LM1117
+name=NT-G2-001
+device=NT-G2-001
 refdes=U?
-footprint=SOT223
-description=Low-Dropout Linear Regulator
-documentation=http://simplemachines.it/Datasheets_mizar/LM1117.pdf
+footprint=NT-G2-001.fp
+description=GLONASS/GPS receiver
+documentation=none
 author=max taldykin
 dist-license=PublicDomain
 use-license=PublicDomain
@@ -57,6 +57,56 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		pwr	line	l		IN
-2		pwr	line	r		OUT
-3		pwr	line	b		GND
+1		pwr	line	l		GND
+2		pwr	line	l		GND
+3		out	line	l		LNA_OUT
+4		pwr	line	l		GND
+5		pwr	line	l		GND
+6		in	line	l		MIX_IN
+7		pwr	line	l		GND
+8		pwr	line	l		GND
+9		pwr	line	l		GND
+10		pwr	line	l		GND
+11		pwr	line	l		GND
+12		pwr	line	b		GND
+13		pwr	line	b		GND
+14		in	line	b		REF_IN
+15		pwr	line	b		GND
+16		pwr	line	b		GND
+17		pwr	line	b		GND
+18		pwr	line	b		GND
+19		pwr	line	b		VCC
+20		pwr	line	b		GND
+21		io	line	b		PB0/WE
+22		io	line	b		PB1/ALE
+23		pwr	line	b		Vbat
+24		pwr	line	b		GND
+25		pwr	line	b		GND
+26		io	line	b		USBP
+37		io	line	r		USBN
+36		io	line	r		PB6/TxD1/SCL
+35		io	line	r		PB7/RxD1/SDA
+34		io	line	r		MAP1
+33		io	line	r		MAP0
+32		io	line	r		nPOR
+31		io	line	r		PC0/TxD2/CAN_TX
+30		io	line	r		PC1/RxD2/CAN_RX
+29		io	line	r		PC2/PSS
+28		io	line	r		PD7
+27		pwr	line	r		GND
+51		pwr	line	t		GND
+50		pwr	line	t		GND
+49		pwr	line	t		GND
+48		pwr	line	t		GND
+47		in	line	t		LNA_IN
+46		pwr	line	t		GND
+45		pwr	line	t		GND
+44		pwr	line	t		1.8V
+43		io	line	t		PD1
+42		pwr	line	t		GND
+41		io	line	t		PD2
+40		pwr	line	t		GND
+39		pwr	line	t		GND
+38		pwr	line	t		GND
+
+

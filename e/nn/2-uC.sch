@@ -355,7 +355,7 @@ C 73200 50300 1 90 0 resistor-2.sym
 T 72850 50700 5 10 0 0 90 0 1
 device=RESISTOR
 T 73000 50400 5 10 1 1 90 0 1
-refdes=R23
+refdes=R24
 T 73200 50300 5 10 0 0 0 0 1
 footprint=0805
 T 73000 50900 5 10 1 1 90 0 1
@@ -467,7 +467,7 @@ C 83100 45100 1 0 1 connector8-1.sym
 T 83000 48300 5 10 0 0 0 6 1
 device=CONNECTOR_8
 T 83000 47700 5 10 1 1 0 6 1
-refdes=JTAG
+refdes=JTAG1
 T 83100 45100 5 10 0 0 0 6 1
 footprint=conn_jtag
 }

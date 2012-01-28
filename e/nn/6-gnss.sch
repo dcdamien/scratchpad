@@ -42,7 +42,7 @@ C 48400 49100 1 270 0 BNC-1.sym
 T 49050 48750 5 10 0 0 270 0 1
 device=BNC
 T 48600 49200 5 10 1 1 0 0 1
-refdes=GNSS_ANT
+refdes=GNSS_ANT1
 T 48400 49100 5 10 0 1 0 0 1
 footprint=RightAngleSMA
 }

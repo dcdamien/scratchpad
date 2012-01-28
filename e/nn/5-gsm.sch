@@ -87,7 +87,7 @@ C 58100 41100 1 180 0 connector6-1.sym
 T 56300 39300 5 10 0 0 180 0 1
 device=CONNECTOR_6
 T 58000 39100 5 10 1 1 180 0 1
-refdes=SIM HOLDER
+refdes=SIM_HOLDER1
 T 58100 41100 5 10 0 0 0 0 1
 footprint=sim-holder
 }
@@ -223,7 +223,7 @@ C 50300 51300 1 0 0 BNC-1.sym
 T 50650 51950 5 10 0 0 0 0 1
 device=BNC
 T 50300 52100 5 10 1 1 0 0 1
-refdes=GSM_ANT
+refdes=GSM_ANT1
 T 50300 51300 5 10 0 0 0 0 1
 footprint=RightAngleSMA
 }

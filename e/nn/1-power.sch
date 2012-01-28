@@ -216,7 +216,7 @@ C 46200 43200 1 0 0 connector6-1.sym
 T 48000 45000 5 10 0 0 0 0 1
 device=CONNECTOR_6
 T 46300 45200 5 10 1 1 0 0 1
-refdes=USB_B
+refdes=USB_B1
 T 46200 43200 5 10 0 0 180 6 1
 footprint=UX60-MB-5ST
 }

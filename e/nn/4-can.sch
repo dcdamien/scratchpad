@@ -50,7 +50,7 @@ C 52300 46800 1 180 0 connector4-1.sym
 T 50500 45900 5 10 0 0 180 0 1
 device=CONNECTOR_4
 T 52300 45400 5 10 1 1 180 0 1
-refdes=CAN
+refdes=CAN1
 T 52300 46800 5 10 0 0 0 0 1
 footprint=JUMPER4
 }

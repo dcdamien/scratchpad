@@ -12,9 +12,9 @@ wordswap=yes
 rotate_labels=yes
 sort_labels=no
 generate_pinseq=yes
-sym_width=7000
-pinwidthvertical=400
-pinwidthhorizontal=400
+sym_width=2500
+pinwidthvertical=300
+pinwidthhorizontal=300
 
 [geda_attr]
 # name will be printed in the top of the symbol
@@ -57,56 +57,22 @@ numslots=0
 #-----------------------------------------------------
 #pinnr	seq	type	style	posit.	net	label	
 #-----------------------------------------------------
-1		pwr	line	l		GND
-2		pwr	line	l		GND
-3		out	line	l		LNA_OUT
-4		pwr	line	l		GND
-5		pwr	line	l		GND
-6		in	line	l		MIX_IN
-7		pwr	line	l		GND
-8		pwr	line	l		GND
-9		pwr	line	l		GND
-10		pwr	line	l		GND
-11		pwr	line	l		GND
-12		pwr	line	b		GND
-13		pwr	line	b		GND
-14		in	line	b		REF_IN
-15		pwr	line	b		GND
-16		pwr	line	b		GND
-17		pwr	line	b		GND
-18		pwr	line	b		GND
-19		pwr	line	b		VCC
-20		pwr	line	b		GND
-21		io	line	b		PB0/WE
-22		io	line	b		PB1/ALE
-23		pwr	line	b		Vbat
-24		pwr	line	b		GND
-25		pwr	line	b		GND
-26		io	line	b		USBP
-37		io	line	r		USBN
-36		io	line	r		PB6/TxD1/SCL
-35		io	line	r		PB7/RxD1/SDA
-34		io	line	r		MAP1
-33		io	line	r		MAP0
-32		io	line	r		nPOR
-31		io	line	r		PC0/TxD2/CAN_TX
-30		io	line	r		PC1/RxD2/CAN_RX
-29		io	line	r		PC2/PSS
-28		io	line	r		PD7
-27		pwr	line	r		GND
-51		pwr	line	t		GND
-50		pwr	line	t		GND
-49		pwr	line	t		GND
-48		pwr	line	t		GND
-47		in	line	t		LNA_IN
-46		pwr	line	t		GND
-45		pwr	line	t		GND
-44		pwr	line	t		1.8V
-43		io	line	t		PD1
-42		pwr	line	t		GND
-41		io	line	t		PD2
-40		pwr	line	t		GND
-39		pwr	line	t		GND
-38		pwr	line	t		GND
+1		  pwr	line	b		GND
+8 		pwr	line	b		3V15
+10		io	line	b		PC3
+11		io	line	b		PC2
+12		pwr	line	b		VBAT
+17		io	line	r		TX
+18		io	line	r		RX
+19		io	line	r		MAP1
+20		io	line	r		MAP0
+21		io	line	r		nPOR
+24		io	line	r		PPS
+25		io	line	r		PC0
+30		io	line	t		PC5
+32		io	line	t		PC6
+33		pwr	line	t		1V8
+36		io	line	t		LNA_IN
+43		io	line	l		AA
 
 

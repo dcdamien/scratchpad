@@ -1,5 +1,5 @@
 
-TARGETS = SIM900.fp GLONASHA.fp UX60-MB-5ST.fp sim-holder.fp
+TARGETS = SIM900.fp GLONASHA.fp UX60-MB-5ST.fp sim-holder.fp kx-12b.fp
 all: $(TARGETS)
 
 clean:

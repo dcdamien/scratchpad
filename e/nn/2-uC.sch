@@ -69,7 +69,7 @@ refdes=Q2-1
 T 64000 48700 5 10 0 0 90 0 1
 symversion=0.1
 T 64700 48500 5 10 0 0 0 0 1
-footprint=HC49
+footprint=kx-12b
 T 64800 48800 5 10 1 1 0 0 1
 value=12MHz
 }

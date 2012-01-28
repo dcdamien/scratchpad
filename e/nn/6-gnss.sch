@@ -24,7 +24,7 @@ netname=GNSS_TX
 C 46800 45100 1 0 0 NT-G2-001.sym
 {
 T 47900 46600 5 10 1 1 0 6 1
-refdes=U6-1
+refdes=U61
 T 48250 46900 5 10 0 0 0 0 1
 device=NT-G2-001
 T 48250 47100 5 10 0 0 0 0 1
@@ -57,7 +57,7 @@ C 52000 46900 1 0 0 resistor-2.sym
 T 52400 47250 5 10 0 0 0 0 1
 device=RESISTOR
 T 51800 47100 5 10 1 1 0 0 1
-refdes=R6-1
+refdes=R61
 T 52300 46900 5 10 1 1 0 0 1
 value=33k
 T 52000 46900 5 10 0 1 0 0 1
@@ -68,7 +68,7 @@ C 51500 46600 1 0 0 resistor-2.sym
 T 51900 46950 5 10 0 0 0 0 1
 device=RESISTOR
 T 51400 46800 5 10 1 1 0 0 1
-refdes=R6-2
+refdes=R62
 T 51800 46600 5 10 1 1 0 0 1
 value=33k
 T 51500 46600 5 10 0 1 0 0 1
@@ -84,7 +84,7 @@ C 47600 44300 1 0 0 capacitor-1.sym
 T 47800 45000 5 10 0 0 0 0 1
 device=CAPACITOR
 T 47600 44600 5 10 1 1 0 0 1
-refdes=C6-1
+refdes=C61
 T 47800 45200 5 10 0 0 0 0 1
 symversion=0.1
 T 48200 44600 5 10 1 1 0 0 1

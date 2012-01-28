@@ -4,7 +4,7 @@ C 46500 45300 1 0 0 AT25DFxx1.sym
 T 47600 45100 5 10 1 1 0 6 1
 refdes=U3
 T 46500 45300 5 10 0 0 0 0 1
-footprint=SOIC8
+footprint=SO8M
 }
 C 46000 45500 1 0 0 gnd-1.sym
 {

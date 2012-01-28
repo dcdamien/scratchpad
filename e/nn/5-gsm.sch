@@ -185,7 +185,7 @@ refdes=C5-3
 T 51300 42000 5 10 0 0 270 0 1
 symversion=0.1
 T 50600 42200 5 10 0 0 270 0 1
-footprint=EIA_B
+footprint=TANT_B
 T 50000 41300 5 10 1 1 0 0 1
 value=22uF 6V
 }
@@ -214,7 +214,7 @@ refdes=C5-4
 T 51900 50600 5 10 0 0 90 0 1
 symversion=0.1
 T 52600 50400 5 10 0 0 90 0 1
-footprint=EIA_B
+footprint=TANT_B
 T 53100 51200 5 10 1 1 180 0 1
 value=47uF 6V
 }
@@ -225,6 +225,6 @@ device=BNC
 T 50300 52100 5 10 1 1 0 0 1
 refdes=GSM_ANT
 T 50300 51300 5 10 0 0 0 0 1
-footprint=SMA_VERT
+footprint=RightAngleSMA
 }
 N 50800 51800 50800 50000 4

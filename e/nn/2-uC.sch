@@ -316,7 +316,7 @@ refdes=Q2-2
 T 63900 50300 5 10 0 0 90 0 1
 symversion=0.1
 T 64600 50100 5 10 0 0 0 0 1
-footprint=200
+footprint=RCY100
 T 64700 50400 5 10 1 1 0 0 1
 value=32.768KHz
 }

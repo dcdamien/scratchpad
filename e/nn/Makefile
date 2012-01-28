@@ -1,6 +1,6 @@
 
 all:
-	gsch2pcb project
+	gsch2pcb -s project
 
 clean:
 	rm board*

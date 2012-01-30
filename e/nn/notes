@@ -15,13 +15,16 @@
 - использовать резисторную сборку для JTAG 
  - и для sim
 
-- CAN = MAX3051
 - диодная сборка SMF05C
   - footprint
   - добавить в схему 
 
 - sim900
  - на VRTC нужно подать 3.15?
+
+- кнопка TD-26EA за 20р
+ - http://www.xiejia.net/UploadFiles%5C20087299145988459.pdf
+ - http://www.chipdip.ru/product/td-26ea.aspx
 
 LM1117MPX-ADJ/NOPB		65.43
 

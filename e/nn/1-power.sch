@@ -13,7 +13,7 @@ refdes=C12
 T 55900 45000 5 10 0 0 270 0 1
 symversion=0.1
 T 56200 44600 5 10 1 1 180 0 1
-value=47uF 10V
+value=47uF 6V
 T 55200 45200 5 10 0 1 180 0 1
 footprint=TANT_B
 }

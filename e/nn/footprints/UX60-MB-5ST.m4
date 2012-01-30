@@ -12,5 +12,8 @@ Element[0x00 "USB-B-UX60" "U1" "" 0 0 50 50 0x00 100 0x000]
   Pad[mm(-80)  mm(-150) mm(-80)  mm(-300) mm(50)  mm(50) mm(70) "RXD"  "4" 0x0100] 
   Pad[mm(0)    mm(-150) mm(0)    mm(-300) mm(50)  mm(50) mm(70) "TXD"  "3" 0x0100] 
   Pad[mm(80)   mm(-150) mm(80)   mm(-300) mm(50)  mm(50) mm(70) "Vout" "2" 0x0100] 
-  Pad[mm(160)  mm(-150) mm(160)  mm(-300) mm(50)  mm(50) mm(70) "GND"  "1" 0x0100] 
+  Pad[mm(160)  mm(-150) mm(160)  mm(-300) mm(50)  mm(50) mm(70) "GND"  "1" 0x0100]
+
+  Pin[mm(-175) mm(0) 0 mm(100) mm(100) mm(100) "" "" "hole"]
+  Pin[mm(175)  mm(0) 0 mm(100) mm(100) mm(100) "" "" "hole"]
 )

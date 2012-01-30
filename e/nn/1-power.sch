@@ -13,7 +13,7 @@ refdes=C12
 T 55900 45000 5 10 0 0 270 0 1
 symversion=0.1
 T 56200 44600 5 10 1 1 180 0 1
-value=47uF 6V
+value=47uF 10V
 T 55200 45200 5 10 0 1 180 0 1
 footprint=TANT_B
 }
@@ -139,7 +139,7 @@ refdes=C13
 T 55900 41900 5 10 0 0 270 0 1
 symversion=0.1
 T 56200 41500 5 10 1 1 180 0 1
-value=10uF 6V
+value=10uF 10V
 T 55200 42100 5 10 0 1 180 0 1
 footprint=TANT_A
 }
@@ -155,9 +155,9 @@ refdes=C11
 T 50200 44200 5 10 0 0 180 2 1
 symversion=0.1
 T 49700 43500 5 10 1 1 180 6 1
-value=47uF 16V
+value=47uF 10V
 T 50400 43500 5 10 0 1 90 6 1
-footprint=TANT_C
+footprint=TANT_B
 }
 C 52400 44900 1 0 0 LD1117.sym
 {

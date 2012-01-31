@@ -59,4 +59,5 @@ numslots=0
 #-----------------------------------------------------
 3		pwr	line	l		IN
 2		pwr	line	r		OUT
+4		pwr	line	r		OUT
 1		pwr	line	b		ADJ
